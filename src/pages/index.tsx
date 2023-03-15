@@ -904,20 +904,20 @@ export default function Page() {
       <Modal
         scrollBehavior="inside"
         isCentered
-        size="3xl"
+        size={mobile ? "lg" : "3xl"}
         isOpen={getInTouch}
         onClose={() => setGetInTouch(!getInTouch)}
       >
         <ModalOverlay backdropFilter="blur(5px)" />
         <ModalContent bg="#202123" color="#FFF" borderRadius="25">
           <ModalBody p={0} borderRadius="25">
-            <Flex align="center">
+            <Flex flexDir={mobile ? "column" : "row"} align="center">
               <Flex
                 justify="space-between"
-                bg="#111"
+                bg={mobile ? "#202123" : "#111"}
                 p="8"
-                w="50%"
-                h={520}
+                w={mobile ? "100%" : "50%"}
+                h={mobile ? "auto" : 520}
                 flexDir="column"
               >
                 <Flex flexDir="column">
@@ -940,7 +940,12 @@ export default function Page() {
                   </Text>
                 </Flex>
                 <Flex flexDir="column">
-                  <Flex cursor="default" align="center" fontSize="1.2rem">
+                  <Flex
+                    cursor="default"
+                    mt={mobile ? 10 : 0}
+                    align="center"
+                    fontSize="1.2rem"
+                  >
                     <Icon as={FaPhone} mr="2" />
                     <Text color="#FFF" fontFamily="Poppins" fontWeight="bold">
                       (11) 91579-9139
@@ -965,12 +970,17 @@ export default function Page() {
                   </Text>
                 </Flex>
               </Flex>
-              <Flex justify="space-between" p="8" h={500} flexDir="column">
+              <Flex
+                p={mobile ? 0 : "8"}
+                justify="space-between"
+                h={mobile ? "auto" : 500}
+                flexDir="column"
+              >
                 <Flex flexDir="column">
                   <Flex align="center">
                     <Flex flexDir="column">
                       <Text color="#FFF" fontFamily="Poppins" fontSize="0.9rem">
-                        Seu nome
+                        Qual seu nome?
                       </Text>
                       <Input
                         mt="2"
@@ -994,7 +1004,7 @@ export default function Page() {
                     </Flex>
                     <Flex ml="4" flexDir="column">
                       <Text color="#FFF" fontFamily="Poppins" fontSize="0.9rem">
-                        Telefone de contato
+                        Qual seu Whatsapp?
                       </Text>
                       <Input
                         mt="2"
@@ -1020,8 +1030,13 @@ export default function Page() {
                       />
                     </Flex>
                   </Flex>
-                  <Text mt="4" color="#FFF" fontFamily="Poppins" fontSize="0.9rem">
-                    Seu email
+                  <Text
+                    mt="4"
+                    color="#FFF"
+                    fontFamily="Poppins"
+                    fontSize="0.9rem"
+                  >
+                    Qual seu Email?
                   </Text>
                   <Input
                     mt="2"
@@ -1047,41 +1062,12 @@ export default function Page() {
                   />
                   <Flex mt="4" flexDir="column">
                     <Text color="#FFF" fontFamily="Poppins" fontSize="0.9rem">
-                      O quê te interessou?
-                    </Text>
-                    <Select
-                      mt="2"
-                      _active={{
-                        outline: "none !important",
-                        border: "0px solid transparent",
-                      }}
-                      _focus={{
-                        outline: "none !important",
-                        border: "0px solid transparent",
-                      }}
-                      _hover={{
-                        outline: "none !important",
-                        border: "0px solid transparent",
-                      }}
-                      style={{
-                        outline: "none !important",
-                        border: "1px solid #333",
-                      }}
-                    >
-                      <option>a</option>
-                      <option>b</option>
-                      <option>c</option>
-                    </Select>
-                  </Flex>
-
-                  <Flex mt="4" flexDir="column">
-                    <Text color="#FFF" fontFamily="Poppins" fontSize="0.9rem">
                       Sua mensagem
                     </Text>
                     <Textarea
                       mt="2"
-                      h={100}
-                      maxH={100}
+                      h={150}
+                      maxH={150}
                       _active={{
                         outline: "none !important",
                         border: "0px solid transparent",
@@ -1102,16 +1088,21 @@ export default function Page() {
                   </Flex>
                 </Flex>
                 <Flex
-                  mt="4"
+                  my="8"
                   cursor="pointer"
-                  bg="#444"
+                  bg="#1ABA14"
                   justify="center"
                   align="center"
                   borderRadius="full"
                   py="2.5"
                 >
-                  <Text color="#FFF" fontFamily="Poppins">
-                    Enviar mensagem
+                  <Text
+                    fontFamily="Poppins"
+                    fontWeight={600}
+                    color="#FFF"
+                    fontSize="1rem"
+                  >
+                    Entrar em contato
                   </Text>
                 </Flex>
               </Flex>
