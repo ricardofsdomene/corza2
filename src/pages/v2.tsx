@@ -844,7 +844,6 @@ export default function Page() {
                         </Text>
                         <Input
                           mt="2"
-                          w={mobile ? "100%" : "-webkit-fit-content"}
                           _active={{
                             outline: "none !important",
                             border: "0px solid transparent",
@@ -879,7 +878,6 @@ export default function Page() {
                           px="2.5"
                           mask="(00) 00000-0000"
                           mt="2"
-                          w={mobile ? "100%" : "-webkit-fit-content"}
                           onChange={(
                             e: React.ChangeEvent<HTMLInputElement>
                           ) => {
