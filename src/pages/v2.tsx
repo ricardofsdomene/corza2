@@ -70,14 +70,17 @@ export default function Page() {
   const [messageSent, setMessageSent] = useState<boolean>(false);
 
   async function postLead() {
-    const res = await axios.post(`https://corza-dot-membros-375000.rj.r.appspot.com/lead`, {
-      name,
-      email,
-      phone,
-      message,
-      invoicing,
-      employees,
-    });
+    const res = await axios.post(
+      `https://corza-dot-membros-375000.rj.r.appspot.com/lead`,
+      {
+        name,
+        email,
+        phone,
+        message,
+        invoicing,
+        employees,
+      }
+    );
     console.log(res.data);
     if (res.status === 200) {
       setSending(true);
@@ -811,13 +814,15 @@ export default function Page() {
                   h={mobile ? "auto" : 500}
                   flexDir="column"
                 >
-                  <Image
-                    src="/loading.gif"
-                    style={{
-                      width: 30,
-                      height: 30,
-                    }}
-                  />
+                  <Flex py={50}>
+                    <Image
+                      src="/loading.gif"
+                      style={{
+                        width: 30,
+                        height: 30,
+                      }}
+                    />
+                  </Flex>
                 </Flex>
               ) : (
                 <Flex
@@ -834,7 +839,7 @@ export default function Page() {
                       w="100%"
                       align="center"
                     >
-                      <Flex flexDir="column" w="100%"> 
+                      <Flex flexDir="column" w="100%">
                         <Text
                           color="#FFF"
                           fontFamily="Poppins"
@@ -865,7 +870,12 @@ export default function Page() {
                           }}
                         />
                       </Flex>
-                      <Flex ml={mobile ? "0" : "4"} mt={mobile ? "4" : "0"} w="100%" flexDir="column">
+                      <Flex
+                        ml={mobile ? "0" : "4"}
+                        mt={mobile ? "4" : "0"}
+                        w="100%"
+                        flexDir="column"
+                      >
                         <Text
                           color="#FFF"
                           fontFamily="Poppins"
