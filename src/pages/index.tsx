@@ -161,16 +161,41 @@ export default function Page() {
               Corza
             </Text>
             <Flex
-              w="-webkit-fit-content"
-              borderRadius="full"
+              onClick={() => {
+                if (!name.split(" ")[0]) {
+                  toast({
+                    status: "error",
+                    description: "Insira seu nome",
+                  });
+                } else if (!EmailValidator.validate(email)) {
+                  toast({
+                    status: "error",
+                    description: "Insira um E-mail válido",
+                  });
+                } else if (!phone) {
+                  toast({
+                    status: "error",
+                    description: "Insira um Whatsapp válido",
+                  });
+                } else {
+                  postLead();
+                }
+              }}
+              my="8"
+              cursor="pointer"
+              bg="#1ABA14"
               justify="center"
               align="center"
-              bg="#FFF"
-              px="6"
-              py="2"
+              borderRadius="full"
+              py="2.5"
             >
-              <Text fontFamily="Poppins" color="#000" fontSize="1rem">
-                Portal do cliente
+              <Text
+                fontFamily="Poppins"
+                fontWeight={600}
+                color="#FFF"
+                fontSize="1rem"
+              >
+                Entrar em contato
               </Text>
             </Flex>
           </Flex>
