@@ -98,14 +98,26 @@ export default function Page() {
   <meta charset="UTF-8">
   <meta name="facebook-domain-verification" content="n4g5nov03b6c1q3d2avhvjvwi00kew" />
   <title>Corza Digital</title>
+
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GWK1VZNYXW"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JE90HJ2K78">
+</script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-GWK1VZNYXW');
+  gtag('config', 'G-JE90HJ2K78');
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JE90HJ2K78">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JE90HJ2K78');
 </script>
   <script>
     !function(f,b,e,v,n,t,s)
