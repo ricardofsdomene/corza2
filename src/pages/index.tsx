@@ -161,43 +161,20 @@ export default function Page() {
               Corza
             </Text>
             <Flex
-              onClick={() => {
-                if (!name.split(" ")[0]) {
-                  toast({
-                    status: "error",
-                    description: "Insira seu nome",
-                  });
-                } else if (!EmailValidator.validate(email)) {
-                  toast({
-                    status: "error",
-                    description: "Insira um E-mail válido",
-                  });
-                } else if (!phone) {
-                  toast({
-                    status: "error",
-                    description: "Insira um Whatsapp válido",
-                  });
-                } else {
-                  postLead();
-                }
-              }}
-              my="8"
-              cursor="pointer"
-              bg="#1ABA14"
-              justify="center"
-              align="center"
-              borderRadius="full"
-              py="2.5"
-            >
-              <Text
-                fontFamily="Poppins"
-                fontWeight={600}
-                color="#FFF"
-                fontSize="1rem"
-              >
-                Entrar em contato
-              </Text>
-            </Flex>
+            onClick={() => setGetInTouch(true)}
+            cursor="pointer"
+            w="-webkit-fit-content"
+            borderRadius="full"
+            justify="center"
+            align="center"
+            bg="#FFF"
+            px="6"
+            py="2"
+          >
+            <Text fontFamily="Poppins" color="#000" fontSize="1.3rem">
+              Entre em contato
+            </Text>
+          </Flex>
           </Flex>
           <Flex h="100%" w="100%" justify="center" align="center">
             <Flex
