@@ -185,12 +185,8 @@ export default function Page() {
                 fontWeight="bold"
                 fontSize={mobile ? "1.5rem" : tablet ? "2.5rem" : "3rem"}
               >
-                Descubra por que você{" "}
-                <span style={{ color: "red" }}>
-                  não fatura como seus concorrentes{" "}
-                </span>{" "}
-                <br />
-                no mercado digital.
+                Você está agindo pra prosperar ou
+                <span style={{ color: "red" }}> falir</span> o seu negócio?
               </Text>
               <Text
                 mt="4"
