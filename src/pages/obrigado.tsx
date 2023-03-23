@@ -70,10 +70,6 @@ export default function Page() {
 
   const [messageSent, setMessageSent] = useState<boolean>(false);
 
-  React.useEffect(() => {
-    window.location.reload();
-  }, []);
-
   async function postLead() {
     const res = await axios.post(
       `https://corza-dot-membros-375000.rj.r.appspot.com/lead`,
