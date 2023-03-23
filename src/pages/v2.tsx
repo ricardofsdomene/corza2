@@ -51,11 +51,13 @@ import {
 import useMediaQuery from "../utils/useMediaQuery";
 import * as EmailValidator from "email-validator";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 export default function Page() {
   const { mobile, tablet, desktop } = useMediaQuery();
 
   const toast = useToast();
+  const router = useRouter();
 
   const [getInTouch, setGetInTouch] = useState(false);
 
@@ -86,9 +88,7 @@ export default function Page() {
     if (res.status === 200) {
       setSending(true);
       setTimeout(() => {
-        setMessageSent(true);
-        setSending(false);
-        setGetInTouch(false);
+        router.push("/obrigado");
       }, 2000);
     } else {
       toast({
