@@ -496,8 +496,8 @@ export default function Page() {
           <Image
             mt="24"
             style={{
-              height: mobile ? "100%" : 400,
-              width: "auto",
+              height: mobile ? "auto" : 400,
+              width: mobile ? "100%" : "auto",
               borderRadius: 25,
             }}
             src="/vfit.png"
