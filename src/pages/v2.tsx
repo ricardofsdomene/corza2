@@ -198,9 +198,10 @@ export default function Page() {
                 textAlign="center"
                 fontSize={mobile ? "1rem" : tablet ? "1.5rem" : "1.4rem"}
               >
-                O método TDA em 7 passos ajuda a entender por que seu negócio
-                não está alcançando os resultados desejados e fornece um passo a
-                passo para superar as metas de faturamento.
+                Conheça o método TDA em 7 passos, vamos entender por que seu
+                negócio não está alcançando os resultados desejados e te
+                fornecer um passo a passo de simples aplicação para você superar
+                as metas de faturamento.
               </Text>
               <Flex
                 onClick={() => setGetInTouch(true)}
@@ -321,8 +322,9 @@ export default function Page() {
                   fontSize={mobile ? "1rem" : "1.6rem"}
                   fontWeight="bold"
                 >
-                  Preencha o formulario para ter um diagnóstico feito por
-                  analistas que fazem estratégias de grandes empresas
+                  Preencha o formulário para ter um diagnóstico feito por
+                  analistas responsáveis pro criar estrategia de grandes
+                  negócios
                 </Text>
                 <Flex
                   justify="space-between"
@@ -620,16 +622,17 @@ export default function Page() {
                   textShadow: "rgba(255, 255, 255, 1) 0 0 20px",
                 }}
               >
-                Muitos anos atras Bill gates disse: <br />
+                Alguns anos atrás, Bill gates disse:
+                <br />
                 <span
                   style={{
                     fontWeight: "bold",
                   }}
                 >
-                  “O negocio que nao estiver na internet está morto”
+                  “O negócio que não estiver na internet está morto”
                   <br />
                 </span>
-                imagine a importância dessa frase nos dias de hoje.
+                imagine a importância dessa frase atualmente.
               </Text>
               <Text
                 style={
@@ -712,7 +715,7 @@ export default function Page() {
                 textAlign="center"
                 fontSize={mobile ? "1rem" : "1rem"}
               >
-                Você esta agindo para o seu negocio prosperar ou para falir?
+                Você está agindo para prosperar ou para falir o seu negócio?
               </Text>
               <Flex
                 onClick={() => setGetInTouch(true)}
