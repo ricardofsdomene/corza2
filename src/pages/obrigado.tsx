@@ -98,6 +98,8 @@ export default function Page() {
     }
   }
 
+  const [hasReloaded, setHasReloaded] = useState(false);
+
   const html = `
     <head>
     <meta charset="UTF-8">

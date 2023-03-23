@@ -88,7 +88,7 @@ export default function Page() {
     if (res.status === 200) {
       setSending(true);
       setTimeout(() => {
-        router.replace("/obrigado");
+        window.location.href = "/obrigado";
       }, 2000);
     } else {
       toast({
