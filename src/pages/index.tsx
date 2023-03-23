@@ -11,8 +11,12 @@ import {
   ModalOverlay,
   Select,
   Textarea,
+  useToast,
 } from "@chakra-ui/react";
+import axios from "axios";
 import React, { useState } from "react";
+import { IMaskInput } from "react-imask";
+import * as EmailValidator from "email-validator";
 
 import {
   FaArrowRight,
@@ -48,7 +52,46 @@ import useMediaQuery from "../utils/useMediaQuery";
 export default function Page() {
   const { mobile, tablet, desktop } = useMediaQuery();
 
+  const toast = useToast();
+
   const [getInTouch, setGetInTouch] = useState(false);
+
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
+  const [employees, setEmployees] = useState<string>("1-2");
+  const [invoicing, setInvoicing] = useState<string>("1.000-5.000");
+
+  const [sending, setSending] = useState(false);
+
+  const [messageSent, setMessageSent] = useState<boolean>(false);
+
+  async function postLead() {
+    const res = await axios.post(
+      `https://corza-dot-membros-375000.rj.r.appspot.com/lead`,
+      {
+        name,
+        email,
+        phone,
+        message,
+        invoicing,
+        employees,
+      }
+    );
+    console.log(res.data);
+    if (res.status === 200) {
+      setSending(true);
+      setTimeout(() => {
+        window.location.href = "/obrigado";
+      }, 2000);
+    } else {
+      toast({
+        status: "error",
+        description: "Falha ao enviar, entre em contato conosco.",
+      });
+    }
+  }
 
   const html = `
   <head>
@@ -995,104 +1038,122 @@ export default function Page() {
                   </Text>
                 </Flex>
               </Flex>
-              <Flex
-                p={mobile ? 0 : "8"}
-                justify="space-between"
-                h={mobile ? "auto" : 500}
-                flexDir="column"
-              >
-                <Flex flexDir="column">
-                  <Flex align="center">
-                    <Flex flexDir="column">
-                      <Text color="#FFF" fontFamily="Poppins" fontSize="0.9rem">
-                        Qual seu nome?
-                      </Text>
-                      <Input
-                        mt="2"
-                        _active={{
-                          outline: "none !important",
-                          border: "0px solid transparent",
-                        }}
-                        _focus={{
-                          outline: "none !important",
-                          border: "0px solid transparent",
-                        }}
-                        _hover={{
-                          outline: "none !important",
-                          border: "0px solid transparent",
-                        }}
-                        style={{
-                          outline: "none !important",
-                          border: "1px solid #333",
-                        }}
-                      />
-                    </Flex>
-                    <Flex ml="4" flexDir="column">
-                      <Text color="#FFF" fontFamily="Poppins" fontSize="0.9rem">
-                        Qual seu Whatsapp?
-                      </Text>
-                      <Input
-                        mt="2"
-                        _active={{
-                          outline: "none !important",
-                          border: "0px solid transparent",
-                        }}
-                        _focus={{
-                          outline: "none !important",
-                          border: "0px solid transparent",
-                        }}
-                        _hover={{
-                          outline: "none !important",
-                          border: "0px solid transparent",
-                        }}
-                        style={{
-                          outline: "none !important",
-                          border: "1px solid #333",
-                        }}
-                        _placeholder={{
-                          color: "#fff",
-                        }}
-                      />
-                    </Flex>
+              {sending ? (
+                <Flex
+                  py={mobile ? 0 : "8"}
+                  px={mobile ? "8" : "8"}
+                  justify="space-between"
+                  h={mobile ? "auto" : 500}
+                  flexDir="column"
+                >
+                  <Flex py={50}>
+                    <Image
+                      src="/loading.gif"
+                      style={{
+                        width: 30,
+                        height: 30,
+                      }}
+                    />
                   </Flex>
-                  <Text
-                    mt="4"
-                    color="#FFF"
-                    fontFamily="Poppins"
-                    fontSize="0.9rem"
-                  >
-                    Qual seu Email?
-                  </Text>
-                  <Input
-                    mt="2"
-                    _active={{
-                      outline: "none !important",
-                      border: "0px solid transparent",
-                    }}
-                    _focus={{
-                      outline: "none !important",
-                      border: "0px solid transparent",
-                    }}
-                    _hover={{
-                      outline: "none !important",
-                      border: "0px solid transparent",
-                    }}
-                    style={{
-                      outline: "none !important",
-                      border: "1px solid #333",
-                    }}
-                    _placeholder={{
-                      color: "#fff",
-                    }}
-                  />
-                  <Flex mt="4" flexDir="column">
-                    <Text color="#FFF" fontFamily="Poppins" fontSize="0.9rem">
-                      Sua mensagem
+                </Flex>
+              ) : (
+                <Flex
+                  py={mobile ? 0 : "8"}
+                  px={mobile ? "8" : "8"}
+                  justify="space-between"
+                  h={mobile ? "auto" : 500}
+                  flexDir="column"
+                  w="100%"
+                >
+                  <Flex flexDir="column" w="100%">
+                    <Flex
+                      flexDir={mobile ? "column" : "row"}
+                      w="100%"
+                      align="center"
+                    >
+                      <Flex flexDir="column" w="100%">
+                        <Text
+                          color="#FFF"
+                          fontFamily="Poppins"
+                          fontSize="0.9rem"
+                        >
+                          Qual seu nome?
+                        </Text>
+                        <Input
+                          mt="2"
+                          _active={{
+                            outline: "none !important",
+                            border: "0px solid transparent",
+                          }}
+                          _focus={{
+                            outline: "none !important",
+                            border: "0px solid transparent",
+                          }}
+                          _hover={{
+                            outline: "none !important",
+                            border: "0px solid transparent",
+                          }}
+                          style={{
+                            outline: "none !important",
+                            border: "1px solid #333",
+                          }}
+                          onChange={(e) => {
+                            setName(e.target.value);
+                          }}
+                        />
+                      </Flex>
+                      <Flex
+                        ml={mobile ? "0" : "4"}
+                        mt={mobile ? "4" : "0"}
+                        w="100%"
+                        flexDir="column"
+                      >
+                        <Text
+                          color="#FFF"
+                          fontFamily="Poppins"
+                          fontSize="0.9rem"
+                        >
+                          Qual seu Whatsapp?
+                        </Text>
+                        <Input
+                          as={IMaskInput}
+                          px="2.5"
+                          mask="(00) 00000-0000"
+                          mt="2"
+                          onChange={(
+                            e: React.ChangeEvent<HTMLInputElement>
+                          ) => {
+                            setPhone(e.target.value);
+                          }}
+                          _active={{
+                            outline: "none !important",
+                            border: "0px solid transparent",
+                          }}
+                          _focus={{
+                            outline: "none !important",
+                            border: "0px solid transparent",
+                          }}
+                          _hover={{
+                            outline: "none !important",
+                            border: "0px solid transparent",
+                          }}
+                          style={{
+                            outline: "none !important",
+                            border: "1px solid #333",
+                          }}
+                        />
+                      </Flex>
+                    </Flex>
+                    <Text
+                      mt="4"
+                      color="#FFF"
+                      fontFamily="Poppins"
+                      fontSize="0.9rem"
+                    >
+                      Qual seu Email?
                     </Text>
-                    <Textarea
+                    <Input
                       mt="2"
-                      h={150}
-                      maxH={150}
                       _active={{
                         outline: "none !important",
                         border: "0px solid transparent",
@@ -1109,28 +1170,83 @@ export default function Page() {
                         outline: "none !important",
                         border: "1px solid #333",
                       }}
+                      _placeholder={{
+                        color: "#fff",
+                      }}
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                      }}
                     />
+                    <Flex mt="4" flexDir="column">
+                      <Text color="#FFF" fontFamily="Poppins" fontSize="0.9rem">
+                        Sua mensagem
+                      </Text>
+                      <Textarea
+                        onChange={(e) => {
+                          setMessage(e.target.value);
+                        }}
+                        mt="2"
+                        h={150}
+                        maxH={150}
+                        _active={{
+                          outline: "none !important",
+                          border: "0px solid transparent",
+                        }}
+                        _focus={{
+                          outline: "none !important",
+                          border: "0px solid transparent",
+                        }}
+                        _hover={{
+                          outline: "none !important",
+                          border: "0px solid transparent",
+                        }}
+                        style={{
+                          outline: "none !important",
+                          border: "1px solid #333",
+                        }}
+                      />
+                    </Flex>
+                  </Flex>
+                  <Flex
+                    onClick={() => {
+                      if (!name.split(" ")[0]) {
+                        toast({
+                          status: "error",
+                          description: "Insira seu nome",
+                        });
+                      } else if (!EmailValidator.validate(email)) {
+                        toast({
+                          status: "error",
+                          description: "Insira um E-mail válido",
+                        });
+                      } else if (!phone) {
+                        toast({
+                          status: "error",
+                          description: "Insira um Whatsapp válido",
+                        });
+                      } else {
+                        postLead();
+                      }
+                    }}
+                    my="8"
+                    cursor="pointer"
+                    bg="#1ABA14"
+                    justify="center"
+                    align="center"
+                    borderRadius="full"
+                    py="2.5"
+                  >
+                    <Text
+                      fontFamily="Poppins"
+                      fontWeight={600}
+                      color="#FFF"
+                      fontSize="1rem"
+                    >
+                      Entrar em contato
+                    </Text>
                   </Flex>
                 </Flex>
-                <Flex
-                  my="8"
-                  cursor="pointer"
-                  bg="#1ABA14"
-                  justify="center"
-                  align="center"
-                  borderRadius="full"
-                  py="2.5"
-                >
-                  <Text
-                    fontFamily="Poppins"
-                    fontWeight={600}
-                    color="#FFF"
-                    fontSize="1rem"
-                  >
-                    Entrar em contato
-                  </Text>
-                </Flex>
-              </Flex>
+              )}
             </Flex>
           </ModalBody>
         </ModalContent>
