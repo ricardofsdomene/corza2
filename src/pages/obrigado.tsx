@@ -70,6 +70,10 @@ export default function Page() {
 
   const [messageSent, setMessageSent] = useState<boolean>(false);
 
+  React.useEffect(() => {
+    window.location.reload();
+  }, []);
+
   async function postLead() {
     const res = await axios.post(
       `https://corza-dot-membros-375000.rj.r.appspot.com/lead`,
@@ -206,7 +210,6 @@ export default function Page() {
           <Flex align="center">
             <Flex align="center" transform="rotate(-90deg)"></Flex>
             <Flex flexDir="column" bg="#000" maxW={900} borderRadius="20">
-       
               <Flex
                 flexDir={mobile ? "column" : "row"}
                 align={mobile ? "flex-start" : "center"}
