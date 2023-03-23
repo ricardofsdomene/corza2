@@ -97,7 +97,7 @@ export default function Page() {
   <head>
   <meta charset="UTF-8">
   <meta name="facebook-domain-verification" content="n4g5nov03b6c1q3d2avhvjvwi00kew" />
-  <title>Minha página</title>
+  <title>Corza Digital</title>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GWK1VZNYXW"></script>
 <script>
