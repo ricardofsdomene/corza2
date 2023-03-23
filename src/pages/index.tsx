@@ -50,8 +50,33 @@ export default function Page() {
 
   const [getInTouch, setGetInTouch] = useState(false);
 
+  const html = `
+  <head>
+  <meta charset="UTF-8">
+  <meta name="facebook-domain-verification" content="n4g5nov03b6c1q3d2avhvjvwi00kew" />
+  <title>Minha página</title>
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '228774192860933');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" src="https://www.facebook.com/tr?id=SEU_ID_DE_PIXEL_AQUI&ev=PageView&noscript=1"/>
+  </noscript>
+</head>
+  `;
+
   return (
     <Flex flexDir="column" cursor="default">
+      <div dangerouslySetInnerHTML={{ __html: html }} />
+
       <Flex w="100%" flexDir="column">
         <Flex h={mobile ? "auto" : "100vh"} bg="#000102" flexDir="column">
           <Flex
