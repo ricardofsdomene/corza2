@@ -101,6 +101,7 @@ export default function Page() {
   const html = `
   <head>
   <meta charset="UTF-8">
+  <meta name="facebook-domain-verification" content="n4g5nov03b6c1q3d2avhvjvwi00kew" />
   <title>Minha página</title>
   <script>
     !function(f,b,e,v,n,t,s)
