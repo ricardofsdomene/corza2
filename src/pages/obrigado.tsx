@@ -106,16 +106,11 @@ export default function Page() {
     <meta name="facebook-domain-verification" content="n4g5nov03b6c1q3d2avhvjvwi00kew" />
     <title>Minha página</title>
 
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JE90HJ2K78">
-</script>
+<!-- Event snippet for Lead conversion page -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-JE90HJ2K78');
+  gtag('event', 'conversion', {'send_to': 'AW-11127445116/eWtyCP6DnJUYEPys_bkp'});
 </script>
+
 
     <script>
       !function(f,b,e,v,n,t,s)
