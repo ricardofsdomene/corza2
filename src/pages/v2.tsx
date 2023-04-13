@@ -164,9 +164,9 @@ export default function Page() {
             w="100%"
             justify="center"
             align="center"
-            style={{
-              background: "linear-gradient(to bottom, #06915C -100%, #000 80%)",
-            }}
+            // style={{
+            //   background: "linear-gradient(to bottom, #06915C -100%, #000 80%)",
+            // }}
           >
             <Flex
               mt="20"
