@@ -186,7 +186,7 @@ export default function Page() {
                 fontSize={mobile ? "1.5rem" : tablet ? "2.5rem" : "3rem"}
               >
                 Voce caiu nessa pagina porque foi pré selecionado. Pode ser o
-                destino, ou so nosso trafego que ta
+                destino, ou só nosso trafego que ta
                 <span style={{ color: "red" }}> bem feito</span> mesmo.
               </Text>
               <Text
