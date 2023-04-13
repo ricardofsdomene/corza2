@@ -185,8 +185,9 @@ export default function Page() {
                 fontWeight="bold"
                 fontSize={mobile ? "1.5rem" : tablet ? "2.5rem" : "3rem"}
               >
-                Você está agindo pra prosperar ou
-                <span style={{ color: "red" }}> falir</span> o seu negócio?
+                Voce caiu nessa pagina porque foi pre selecionado Pode ser o
+                destino, ou so nosso trafego que ta
+                <span style={{ color: "red" }}> bem feito</span> mesmo.
               </Text>
               <Text
                 mt="4"
@@ -194,10 +195,18 @@ export default function Page() {
                 textAlign="center"
                 fontSize={mobile ? "1rem" : tablet ? "1.5rem" : "1.4rem"}
               >
-                Conheça o método TDA em 7 passos, vamos entender por que seu
-                negócio não está alcançando os resultados desejados e te
-                fornecer um passo a passo de simples aplicação para você superar
-                as metas de faturamento.
+                Se voce é empresario/empreendedor e você ou seu negocio hoje,
+                tem problemas e gargalos para resolver e mudar de nível,
+                cadastre-se abaixo
+              </Text>
+              <Text
+                mt="4"
+                fontFamily="Poppins"
+                textAlign="center"
+                fontSize={mobile ? "1rem" : tablet ? "1.5rem" : "1.4rem"}
+              >
+                Se esse nao for seu caso, por favor, nao se cadastre, você e e
+                nossa equipe de atendimento so vao perder tempo.
               </Text>
               <Flex
                 onClick={() => setGetInTouch(true)}
