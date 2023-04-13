@@ -185,9 +185,8 @@ export default function Page() {
                 fontWeight="bold"
                 fontSize={mobile ? "1.5rem" : tablet ? "2.5rem" : "3rem"}
               >
-                Voce caiu nessa pagina porque foi pré selecionado. Pode ser o
-                destino, ou só nosso trafego que ta
-                <span style={{ color: "red" }}> bem feito</span> mesmo.
+                Quando você tem alguma dúvida ou problema no seu negócio, a quem
+                <span style={{ color: "red" }}> você recorre?</span>
               </Text>
               <Text
                 mt="4"
@@ -195,9 +194,8 @@ export default function Page() {
                 textAlign="center"
                 fontSize={mobile ? "1rem" : tablet ? "1.5rem" : "1.4rem"}
               >
-                Se voce é empresario/empreendedor e você ou seu negocio hoje,
-                tem problemas e gargalos para resolver e mudar de nível,
-                cadastre-se abaixo
+                Se você é empresario/empreendedor e o seu negócio tem problemas
+                e gargalos que te impedem de faturar mais, cadastre-se abaixo
               </Text>
               <Text
                 mt="4"
@@ -205,8 +203,10 @@ export default function Page() {
                 textAlign="center"
                 fontSize={mobile ? "1rem" : tablet ? "1.5rem" : "1.4rem"}
               >
-                Se esse nao for seu caso, por favor, não se cadastre, você e a
-                nossa equipe de atendimento só vão perder tempo.
+                Se esse não for seu caso se seu negócio esta indo de vento em
+                polpa e seu negócio não precisa melhorar em nenhum, aspecto, por
+                favor, não se cadastre, você e a nossa equipe de atendimento só
+                irão perder tempo.
               </Text>
               <Flex
                 onClick={() => setGetInTouch(true)}
