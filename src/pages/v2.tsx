@@ -185,7 +185,7 @@ export default function Page() {
                 fontWeight="bold"
                 fontSize={mobile ? "1.5rem" : tablet ? "2.5rem" : "3rem"}
               >
-                Voce caiu nessa pagina porque foi pre selecionado Pode ser o
+                Voce caiu nessa pagina porque foi pré selecionado. Pode ser o
                 destino, ou so nosso trafego que ta
                 <span style={{ color: "red" }}> bem feito</span> mesmo.
               </Text>
@@ -205,8 +205,8 @@ export default function Page() {
                 textAlign="center"
                 fontSize={mobile ? "1rem" : tablet ? "1.5rem" : "1.4rem"}
               >
-                Se esse nao for seu caso, por favor, nao se cadastre, você e e
-                nossa equipe de atendimento so vao perder tempo.
+                Se esse nao for seu caso, por favor, não se cadastre, você e a
+                nossa equipe de atendimento só vão perder tempo.
               </Text>
               <Flex
                 onClick={() => setGetInTouch(true)}
